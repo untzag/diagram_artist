@@ -16,8 +16,8 @@ ax.text(0.6, 0.25, 'IV', fontsize = 30, verticalalignment = 'center', horizontal
 ax.text(-0.25, -0.6, 'V', fontsize = 30, verticalalignment = 'center', horizontalalignment = 'center')
 ax.text(0.5, -0.5, 'VI', fontsize = 30, verticalalignment = 'center', horizontalalignment = 'center')
 
-ax.set_xlabel(r'd1 $\mathrm{(\tau_{2^{\prime}2})}$', fontsize = 15)
-ax.set_ylabel(r'd2 $\mathrm{(\tau_{12})}$', fontsize = 15)
+ax.set_xlabel(r'd1 $\mathrm{(\tau_{22^{\prime}})}$', fontsize = 15)
+ax.set_ylabel(r'd2 $\mathrm{(\tau_{21})}$', fontsize = 15)
 ax.set_title('ultimate representation')
 
 ax.tick_params(axis='both',          
@@ -52,8 +52,8 @@ ax.text(-0.6, 0.25, 'IV', fontsize = 30, verticalalignment = 'center', horizonta
 ax.text(0.25, -0.6, 'V', fontsize = 30, verticalalignment = 'center', horizontalalignment = 'center')
 ax.text(-0.5, -0.5, 'VI', fontsize = 30, verticalalignment = 'center', horizontalalignment = 'center')
 
-ax.set_xlabel(r'd1 $\mathrm{(\tau_{22^{\prime}})}$', fontsize = 15)
-ax.set_ylabel(r'd2 $\mathrm{(\tau_{12})}$', fontsize = 15)
+ax.set_xlabel(r'd1 $\mathrm{(\tau_{2^{\prime}2})}$', fontsize = 15)
+ax.set_ylabel(r'd2 $\mathrm{(\tau_{21})}$', fontsize = 15)
 ax.set_title('as collected')
 
 ax.tick_params(axis='both',          

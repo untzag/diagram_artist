@@ -60,7 +60,7 @@ class diagram:
         plot = self.subplots[diagram[1]][diagram[0]]
         plot.cla()
         
-    def add_arrow(self, diagram, number, between, kind, label = '', head_size = 0.075, font_size = 7):
+    def add_arrow(self, diagram, number, between, kind, label = '', head_size = 0.075, font_size = 7, color = 'k'):
         '''
         kind one in [ket, bra, out]
         '''
@@ -87,20 +87,20 @@ class diagram:
         #add line
         length = abs(y_poss[0] - y_poss[1])
         if kind == 'ket':
-            line = subplot.plot([x_pos, x_pos], y_poss, linestyle = '-', color = 'k', linewidth = 2)
+            line = subplot.plot([x_pos, x_pos], y_poss, linestyle = '-', color = color, linewidth = 2)
         elif kind == 'bra':
-            line = subplot.plot([x_pos, x_pos], y_poss, linestyle = '--', color = 'k', linewidth = 2)
+            line = subplot.plot([x_pos, x_pos], y_poss, linestyle = '--', color = color, linewidth = 2)
         elif kind == 'out':
             yi = np.linspace(y_poss[0], y_poss[1], 100)
             xi = np.sin((yi - y_poss[0])*int((1/length)*20)*2*np.pi*length)/40 + x_pos
-            line = subplot.plot(xi, yi, linestyle = '-', color = 'k', linewidth = 2, solid_capstyle='butt')
+            line = subplot.plot(xi, yi, linestyle = '-', color = color, linewidth = 2, solid_capstyle='butt')
         
         #add arrow head
         arrow_head = subplot.arrow(self.x_pos[number], arrow_end - head_size*direction, 
                                    0, 0.0001*direction,
                                    head_width=head_size*2, 
                                    head_length=head_size,
-                                   fc='k', ec='k', linestyle='solid', linewidth=0)
+                                   fc=color, ec=color, linestyle='solid', linewidth=0)
 
         #add text
         text = subplot.text(self.x_pos[number], -0.1, label, fontsize = font_size, horizontalalignment ='center')
@@ -108,7 +108,7 @@ class diagram:
 
         return line, arrow_head, text   
     
-    def plot(self, save_path = None):
+    def plot(self, save_path = None, close = False):
     
         #final manipulations
         for plot in self.subplots.flatten():
@@ -120,6 +120,9 @@ class diagram:
 
         #save
         if save_path: plt.savefig(save_path, transparent = True, dpi = 300)
+        
+        #close
+        if close: plt.close()        
         
 if __name__ == '__main__':
     '''
