@@ -68,3 +68,5 @@ ax.tick_params(axis='both',
 ax.set_aspect(1.)
 
 plt.savefig('TRIEE_delay_space_as_collected.png', transparent = True)
+
+
